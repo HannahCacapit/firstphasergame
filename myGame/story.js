@@ -13,20 +13,30 @@ game_state.story.prototype = {
     create: function(){
         game.add.sprite(0, 0, 'sky');
 
-        game.add.sprite(460, 460, 'star');
+        game.add.sprite(450, 460, 'star');
 
         this.platforms = game.add.group();
         var ground = this.platforms.create(0, game.world.height - 64, 'ground');
         ground.scale.setTo(2, 2);
         
-        game.add.sprite(300, 450, 'character');
+        game.add.sprite(300, 433, 'character');
 
-        this.storyText = game.add.text(20, 50, 'Greetings from the goddess of dreams \r When people make wises, those fall from the skies \r in the form of what you people call shooting stars. \r We call them "spirits" \r My job is to collect those spirits \r or they fade and those dreams will not come true ',{
+        this.storyText = game.add.text(20, 50, ' Greetings from the collector of dreams! \r When people make wises, those fall from the skies \r in the form of what you people call shooting stars. \r My job is to collect those dreams \r or they fade and will not come true. \r I can only carry at 100 dreams at a time',{
             fontSize: '32px',
             fill: '#000' 
+
         });
+        
+        this.storyText = game.add.text(200, 350, ' press down arrow to play',{ fontSize: '32 px', fill: '#000' });
+        
+        this.cursors = game.input.keyboard.createCursorKeys();
+
     },
     update: function(){
+        
+        if (this.cursors.down.isDown) {
+            game.state.start('main')
+        }
         
     }
 };

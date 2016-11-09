@@ -45,20 +45,21 @@ game_state.main.prototype = {
         //Now let's create ledges
         var ledge = this.platforms.create(340, 260, 'ground');
         ledge.body.immovable = true;
+        
         ledge.scale.setTo(0.2, 1);
-        ledge = this.platforms.create(20, 400, 'ground');
+        ledge = this.platforms.create(40, 400, 'ground');
         ledge.body.immovable = true;
         ledge.scale.setTo(0.5, 1);
-        ledge = this.platforms.create(60, 100, 'ground');
+        ledge = this.platforms.create(110, 110, 'ground');
         ledge.body.immovable = true;
-        ledge.scale.setTo(0.5, 1);
+        ledge.scale.setTo(0.25, 1);
         ledge = this.platforms.create(570, 400, 'ground');
         ledge.body.immovable = true;
         ledge.scale.setTo(0.5, 1);
-        ledge = this.platforms.create(500, 100, 'ground');
+        ledge = this.platforms.create(530, 110, 'ground');
         ledge.body.immovable = true;
-        ledge.scale.setTo(0.5, 1);
-
+        ledge.scale.setTo(0.25, 1);
+        
         //The this.player and its settings
         this.player = game.add.sprite(275, game.world.height - 210, 'character');
 
@@ -85,10 +86,10 @@ game_state.main.prototype = {
         //We will enable physics for any star that is created in this group
         this.stars.enableBody = true;
        
-        //Here we'll create 12 of them evenly spaced apart
-        for (var i = 0; i < 12; i++) {
+        //Here we'll create 6 of them evenly spaced apart
+        for (var i = 0; i < 6; i++) {
             //Create a star inside of the 'this.stars' group
-            var star = this.stars.create(i * 70, 0, 'star');
+            var star = this.stars.create(i * 133, 0, 'star');
             //Let gravity do its thing
             star.body.gravity.y = 300;
 
@@ -97,12 +98,12 @@ game_state.main.prototype = {
         }
         
         //The this.score
-        this.scoreText = game.add.text(16, 16, 'Score: 0', {
+       this.scoreText = game.add.text(16, 16, 'Score: 0', {
             fontSize: '32px',
             fill: '#000'
         });
         this.score = 0;
-
+       
     },
 
 
@@ -124,6 +125,7 @@ game_state.main.prototype = {
             this.player.body.velocity.x = 180;
 
             this.player.animations.play('right');
+        
         }
         else {
             //Stand still
@@ -131,26 +133,47 @@ game_state.main.prototype = {
 
             this.player.frame = 0;
         }
+        
 
         //Allow the this.player to jump if they are touching the ground.
         if (this.cursors.up.isDown && this.player.body.touching.down) {
             this.player.body.velocity.y = -350;
         }
-
+        
         //Collide the stars and platforms
         game.physics.arcade.collide(this.stars, this.platforms);
 
         //Check to see if this.player overlaps with any of the this.stars, if he does call the collectStar function
         game.physics.arcade.overlap(this.player, this.stars, this.collectStar, null, this);
 
+        if(this.score===100){
+            game.add.text(130, 290, 'I can only collect 100 dreams for now. \r Thank you for helping me collect wishes. \r Now those dreams will come true!',{
+            fontSize: '32px',
+            fill: '#000' 
+        });}
     },
 
     collectStar: function(player, star) {
         //Removes the star from the screen
-        star.kill();
+       if(this.score < 100){ star.kill();
         this.score++;
         this.scoreText.text = "Score: " + this.score;
         
+        game.physics.arcade.collide(this.stars, this.platforms);
+        
+        //Create a star inside of the 'this.stars' group
+        var i = 0; i < 6; i+=1
+        star = this.stars.create(Math.random() * 800, 0, 'star');
+
+        //We will enable physics for any star that is created in this group
+        this.stars.enableBody = true;
+       
+        //Let gravity do its thing
+        star.body.gravity.y = 300;
+
+        //This just gives each star a slightly random bounce value
+        star.body.bounce.y = 0.7 + Math.random() * 0.2;
+       }
     }
 
 };
