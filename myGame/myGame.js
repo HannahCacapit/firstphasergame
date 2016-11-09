@@ -147,7 +147,7 @@ game_state.main.prototype = {
         game.physics.arcade.overlap(this.player, this.stars, this.collectStar, null, this);
 
         if(this.score===100){
-            game.add.text(130, 290, 'I can only collect 100 dreams for now. \r Thank you for helping me collect wishes. \r Now I can make those dreams come true!',{
+            game.add.text(130, 290, ' I can only collect 100 dreams for now. \r Thank you for helping me collect wishes. \r Now I can make those dreams come true!',{
             fontSize: '32px',
             fill: '#000' 
         });}

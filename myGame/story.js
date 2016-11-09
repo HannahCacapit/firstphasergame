@@ -35,7 +35,7 @@ game_state.story.prototype = {
     update: function(){
         
         if (this.cursors.down.isDown) {
-            game.state.start('main')
+            game.state.start('main');
         }
         
     }
