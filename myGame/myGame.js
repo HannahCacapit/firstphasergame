@@ -12,7 +12,7 @@ game_state.main.prototype = {
     preload: function() {
 
         game.load.image('sky', 'assets/background.png');
-        game.load.image('ground', 'assets/platform.png');
+        game.load.image('ground', 'assets/floor.png');
         game.load.image('star', 'assets/dream.png');
         game.load.spritesheet('character', 'assets/character.png', 140, 140);
 
@@ -43,22 +43,21 @@ game_state.main.prototype = {
         ground.body.immovable = true;
 
         //Now let's create ledges
-        var ledge = this.platforms.create(340, 260, 'ground');
+        var ledge = this.platforms.create(330, 260, 'ground');
         ledge.body.immovable = true;
-        
-        ledge.scale.setTo(0.2, 1);
+        ledge.scale.setTo(0.2, 0.5);
         ledge = this.platforms.create(40, 400, 'ground');
         ledge.body.immovable = true;
-        ledge.scale.setTo(0.5, 1);
+        ledge.scale.setTo(0.25, 0.5);
         ledge = this.platforms.create(110, 110, 'ground');
         ledge.body.immovable = true;
-        ledge.scale.setTo(0.25, 1);
-        ledge = this.platforms.create(570, 400, 'ground');
+        ledge.scale.setTo(0.22, 0.5);
+        ledge = this.platforms.create(540, 400, 'ground');
         ledge.body.immovable = true;
-        ledge.scale.setTo(0.5, 1);
-        ledge = this.platforms.create(530, 110, 'ground');
+        ledge.scale.setTo(0.25, 0.5);
+        ledge = this.platforms.create(510, 110, 'ground');
         ledge.body.immovable = true;
-        ledge.scale.setTo(0.25, 1);
+        ledge.scale.setTo(0.22, 0.5);
         
         //The this.player and its settings
         this.player = game.add.sprite(275, game.world.height - 210, 'character');
@@ -103,12 +102,11 @@ game_state.main.prototype = {
             fill: '#000'
         });
         this.score = 0;
-       
     },
 
 
     update: function() {
-
+        game.debug.body(this.stars)
         //Collide the player and the platforms
         game.physics.arcade.collide(this.player, this.platforms);
 
