@@ -106,7 +106,6 @@ game_state.main.prototype = {
 
 
     update: function() {
-        game.debug.body(this.stars)
         //Collide the player and the platforms
         game.physics.arcade.collide(this.player, this.platforms);
 
@@ -161,7 +160,7 @@ game_state.main.prototype = {
         game.physics.arcade.collide(this.stars, this.platforms);
         
         //Create a star inside of the 'this.stars' group
-        var i = 0; i < 6; i+=1
+        var i = 0; i < 6; i+=1;
         star = this.stars.create(Math.random() * 800, 0, 'star');
 
         //We will enable physics for any star that is created in this group

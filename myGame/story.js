@@ -21,7 +21,7 @@ game_state.story.prototype = {
         
         game.add.sprite(300, 433, 'character');
 
-        this.storyText = game.add.text(20, 50, ' Greetings from the collector of dreams! \r When people make wishes, those fall from the skies \r in the form of what you people call shooting stars. \r I have the power to make those dreams come true \r and so it is my job to collect them. \r \r I can only carry at 100 dreams at a time',{
+        this.storyText = game.add.text(20, 50, ' Greetings from the collector of dreams! \r When people make wishes, those fall from the skies \r in the form of what you people call shooting stars. \r I have the power to make those dreams come true \r and so it is my job to collect them. \r \r I can only hold at 100 dreams at a time',{
             fontSize: '32px',
             fill: '#000' 
 
