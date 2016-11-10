@@ -5,9 +5,9 @@ game_state.story.prototype = {
     
     preload: function(){
         
-        game.load.image('sky', 'assets/sky.png');
+        game.load.image('sky', 'assets/background.png');
         game.load.image('ground', 'assets/platform.png');
-        game.load.image('star', 'assets/spirit.png');
+        game.load.image('star', 'assets/dream.png');
         game.load.spritesheet('character', 'assets/character.png', 140, 140);   
     },
     create: function(){

@@ -11,9 +11,9 @@ game_state.main.prototype = {
 
     preload: function() {
 
-        game.load.image('sky', 'assets/sky.png');
+        game.load.image('sky', 'assets/background.png');
         game.load.image('ground', 'assets/platform.png');
-        game.load.image('star', 'assets/spirit.png');
+        game.load.image('star', 'assets/dream.png');
         game.load.spritesheet('character', 'assets/character.png', 140, 140);
 
     },
@@ -139,7 +139,7 @@ game_state.main.prototype = {
         if (this.cursors.up.isDown && this.player.body.touching.down) {
             this.player.body.velocity.y = -350;
         }
-        
+
         //Collide the stars and platforms
         game.physics.arcade.collide(this.stars, this.platforms);
 
@@ -150,7 +150,8 @@ game_state.main.prototype = {
             game.add.text(130, 290, ' I can only collect 100 dreams for now. \r Thank you for helping me collect wishes. \r Now I can make those dreams come true!',{
             fontSize: '32px',
             fill: '#000' 
-        });}
+        });
+        }
     },
 
     collectStar: function(player, star) {
