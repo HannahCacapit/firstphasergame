@@ -45,7 +45,7 @@ game_state.main.prototype = {
         //Now let's create ledges
         var ledge = this.platforms.create(330, 260, 'ground');
         ledge.body.immovable = true;
-        ledge.scale.setTo(0.2, 0.5);
+        ledge.scale.setTo(0.15, 0.5);
         ledge = this.platforms.create(40, 400, 'ground');
         ledge.body.immovable = true;
         ledge.scale.setTo(0.25, 0.5);
