@@ -49,15 +49,15 @@ game_state.main.prototype = {
         ledge = this.platforms.create(40, 400, 'ground');
         ledge.body.immovable = true;
         ledge.scale.setTo(0.25, 0.5);
-        ledge = this.platforms.create(110, 110, 'ground');
+        ledge = this.platforms.create(130, 110, 'ground');
         ledge.body.immovable = true;
-        ledge.scale.setTo(0.22, 0.5);
+        ledge.scale.setTo(0.15, 0.5);
         ledge = this.platforms.create(540, 400, 'ground');
         ledge.body.immovable = true;
         ledge.scale.setTo(0.25, 0.5);
-        ledge = this.platforms.create(510, 110, 'ground');
+        ledge = this.platforms.create(530, 110, 'ground');
         ledge.body.immovable = true;
-        ledge.scale.setTo(0.22, 0.5);
+        ledge.scale.setTo(0.15, 0.5);
         
         //The this.player and its settings
         this.player = game.add.sprite(275, game.world.height - 210, 'character');
